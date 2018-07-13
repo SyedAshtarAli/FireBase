@@ -1,5 +1,6 @@
 package com.example.firebase;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -57,19 +58,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if(view==signup)
         {
-            auth.createUserWithEmailAndPassword(Email,Pass).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                @Override
-                public void onSuccess(AuthResult authResult) {
-                    Toast.makeText(MainActivity.this,"SignUp Success", Toast.LENGTH_LONG).show();
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull final Exception e) {
-                    Toast.makeText(MainActivity.this,e.getMessage(), Toast.LENGTH_LONG).show();
-
-                }
-            });
-
+           Intent intent=new Intent(MainActivity.this,Signup.class);
+           startActivity(intent);
         }
     }
 }
